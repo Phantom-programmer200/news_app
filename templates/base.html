@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="bg-blue-600 text-white p-4">
+      <h1 class="text-2xl text-center">News Application</h1>
+      <nav class="text-center mt-2">
+        <a
+          href="{% url 'article_list' %}"
+          class="text-white hover:underline mx-2"
+          >Home</a
+        >
+
+        <a href="{% url 'login' %}" class="text-white hover:underline mx-2"
+          >Login</a
+        >
+        <a href="{% url 'register' %}" class="text-white hover:underline mx-2"
+          >Register</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      {% if messages %}
+      <div class="container mx-auto p-4">
+        <ul class="space-y-2">
+          {% for message in messages %}
+          <li class="bg-green-100 text-green-800 p-2 rounded-md">
+            {{ message }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %} {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4">
+      <p>&copy; 2024 News Application</p>
+    </footer>
+  </body>
+</html>

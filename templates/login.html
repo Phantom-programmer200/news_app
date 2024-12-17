@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="w-full max-w-md bg-white shadow-md rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Login</h1>
+
+        <!-- Login Form -->
+        <form method="POST" class="space-y-4">
+          {% csrf_token %}
+
+          <!-- Username Field -->
+          <div>
+            <label
+              for="username"
+              class="block text-sm font-medium text-gray-700"
+              >Username</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="Enter your username"
+              required
+            />
+            {% if error %}
+            <div class="text-red-500 text-sm mt-1">{{ error }}</div>
+            {% endif %}
+          </div>
+
+          <!-- Password Field -->
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <div>
+            <button
+              type="submit"
+              class="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+
+        <!-- Additional Links -->
+        <p class="text-center text-sm text-gray-600 mt-4">
+          Don't have an account?
+          <a href="{% url 'register' %}" class="text-indigo-600 hover:underline"
+            >Register here</a
+          >.
+        </p>
+
+        <p class="text-center text-sm text-gray-600 mt-2">
+          <a
+            href="{% url 'password_reset' %}"
+            class="text-indigo-600 hover:underline"
+            >Forgot your password?</a
+          >
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

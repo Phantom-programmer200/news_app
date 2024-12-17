@@ -1,0 +1,50 @@
+# News App
+
+## Overview
+
+The News App is a Django-based web application that aggregates news articles from various sources using the News API.
+
+## Setup Instructions
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your username/news_app.git
+   cd news_app
+
+   ```
+
+2. Create a virtual environment and activate it:
+   python -m venv venv
+
+   # On Windows
+
+   venv\Scripts\activate
+
+   # On macOS/Linux
+
+   source venv/bin/activate
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Configure your API key in articles/views.py.
+
+5. Run database migrations:
+   python manage.py makemigrations
+   python manage.py migrate
+
+6. Create a superuser:
+   python manage.py createsuperuser
+
+7. Start the development server:
+   python manage.py runserver
+
+## Running Tests
+
+To run tests, use:
+python manage.py test
+
+## Deployment
+
+This README file provides a concise overview of your project, setup instructions, key features, and testing and deployment guidelines. Make sure to replace placeholders with your actual GitHub username and any other relevant information. If you have any further questions or need additional assistance, feel free to ask!
